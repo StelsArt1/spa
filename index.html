@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Платежи</title>
+	<link rel="stylesheet" href="spastyles.css" type="text/css">
+</head>
+
+<body>
+<header>
+	<div class="container">	
+		<div class="logo">
+			<img src="data/logo.png" alt="logo" class="logo"></img>
+		</div>
+		<div class="text-logo">
+			<nav>
+				<h1>Индивидуальный предприниматель Якимов Михаил Викторович</h1>
+				<ul>
+					<li><a href="">+79505569438</a></li>
+					<li><a href="">mishanya221@gmail.com</a></li>
+				</ul>
+				<ul>
+					<li><a href="">Информация о компании</a></li></ul>
+				<ul>
+					<li><a href=""> Показать реквизиты</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+
+<main>
+	<div class="container">
+		<input type="radio" name="payment" id="pay" value="pay" checked>
+        <label for="pay"><strong>Заплатить</strong></label>
+        <input type="radio" name="payment" id="request-payment" value="payment-request">
+        <label for="request-payment"><strong>Запросить платёж</strong></label>
+		<div class="pay">
+            <input type="radio" name="choose-bank" id="from-any-bank" value="main-info" checked>
+            <label for="from-any-bank">С карты любого банка</label>
+            <input type="radio" name="choose-bank" id="from-my-bank" value="another-way">
+            <label for="from-my-bank">Из своего интернет-банка</label>
+			<div class="main-info">
+                <form>
+                    <div class="card">
+                        <div class="card-logo">
+                            <img src="data/visa.png" height="20" width="50" alt="visa" />
+                            <img src="data/mastercard.png" height="25" width="50" alt="mastercard" />
+                        </div>
+						
+                        <input type="text" class="card-number" placeholder="Номер карты" required pattern="[0-9]{16}">
+                        <input type="text" class="card-info" placeholder="ММ/ГГ" required pattern="(0[1-9]|1[0-2])/(1[7-9]|2[0-9]|3[0-5])">
+                        <input type="text" 	class="card-info" placeholder="CVC" required pattern="[0-9]{3}">
+                    </div>
+                    <div class="expanded-info">
+                        <ul class="form-info">   
+                            <li>
+                                <label for="amount">Сумма:</label>
+                                <input type="text" id="amount" placeholder="от 1000 до 75000 рублей" required pattern="([1-6]\d{3,4})|([7-9][0-4]\d{3})|([7-9][5-9]\d{2})|(75000)">
+                            </li>
+                            <li>
+                                <label for="comment">Комментарий:</label>
+                                <textarea id="comment" placeholder="до 150 символов" maxlength="150"></textarea>
+                            </li>
+                            <li>
+                                <label for="email">Ваша эл. почта:</label>
+                                <input type="email" id="any-bank_email" placeholder="Для квитанций об оплате">
+                            </li>
+                            <li>
+                                <div class="bank-button">
+                                    <button class="submit" type="submit">
+                                        <strong>Заплатить</strong>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+			<div class="another-way">
+                <form>
+                    <ul class="form-info">
+                        <li>
+                            <h3>Сформируйте платёжку и загрузите её в свой банк для подписи</h3>
+                        </li>
+                        <li>
+                            <label for="inn-recipient">ИНН получателя:</label>
+                            <input type="text" id="inn-recipient" placeholder="ИНН или название плательщика" required pattern="\d{10}|\d{12}">
+                        </li>
+                        <li>
+                            <label for="bik">БИК:</label>
+                            <input type="text" id="bik" required pattern="\d{9}">
+                        </li>
+                        <li>
+                            <label for="account-number">Номер счёта:</label>
+                            <input type="text" id="account-number" required pattern="\d{20}">
+                        </li>
+                        <li>
+                            <label for="for-what">За что:</label>
+                            <div class="choose-nds">
+                                <input type="text" id="for-what" disabled>
+                                <br>
+                                <input type="radio" id="NDS" name="NDS"value="0">
+                                <label for="NDS">Без НДС</label>
+                                <input type="radio" id="NDS-18" name="NDS" value="18">
+                                <label for="NDS-18">НДС 18%</label>
+                                <input type="radio" id="NDS-10" name="NDS" value="10">
+                                <label for="NDS-10">НДС 10%</label>
+                            </div>
+                        </li>
+                        <li>
+                            <label for="how-many">Сколько:</label>
+                            <input type="text" id="how-many" required pattern="([1-6]\d{3,4})|([7-9][0-4]\d{3})|([7-9][5-9]\d{2})|(75000)">
+                        </li>
+                        <li>
+                            <div class="bank-button">
+                                <button class="submit" type="submit">
+                                    <strong>Получить файл для интернет-банка</strong>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="payment-request">
+            <form name="request-payment_form">
+                <ul class="form-info">
+                    <li>
+                        <h3>Создайте платёжку, а Индивидуальный предприниматель Якимов Михаил Виктрович
+                            подпишет её у себя в Интернет-банке</h3>
+                    </li>
+                    <li>
+                        <label for="request-inn-recipient">ИНН получателя:</label>
+                        <input type="text" id="request-inn-recipient" placeholder="ИНН или название плательщика" required pattern="\d{10}|\d{12}">
+                    </li>
+                    <li>
+                        <label for="request-BIK">БИК:</label>
+                        <input type="text" id="request-BIK" required pattern="\d{9}">
+                    </li>
+                    <li>
+                        <label for="request-account-number">Номер счёта:</label>
+                        <input type="text" id="account-number" required pattern="\d{20}">
+                    </li>
+                    <li>
+                        <label for="request-for-what">За что:</label>
+                        <div class="choose-nds">
+                            <input type="text" id="request-for-what" disabled>
+                            <br>
+                            <input type="radio" id="request-NDS" name="NDS" value="0">
+                            <label for="request-NDS">Без НДС</label>
+                            <input type="radio" id="request-NDS-18" name="NDS" value="18">
+                            <label for="request-NDS-18">НДС 18%</label>
+                            <input type="radio" id="request-NDS-10" name="NDS" value="10">
+                            <label for="request-NDS-10">НДС 10%</label>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="request-how-many">Сколько:</label>
+                        <input type="text" id="request-how-many" required pattern="([1-6]\d{3,4})|([7-9][0-4]\d{3})|([7-9][5-9]\d{2})|(75000)">
+                    </li>
+                    <li>
+                        <label for="request-phone-number">Номер телефона:</label>
+                        <input type="text" id="request-phone-number">
+                    </li>
+                    <li>
+                        <label for="request-email">Электронная почта:</label>
+                        <input type="email" id="email" placeholder="Для уведомлений об оплате">
+                    </li>
+                    <li>
+                        <div class="bank-button">
+                            <button class="submit" type="submit"><strong>Создать платёж</strong></button>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="company-info">
+            <h3><a>О компании Индивидуальный предприниматель Якимов Михаил Викторович</a></h3>
+            <div >
+                <div class="product-info">
+					<center>
+						<div>
+							<img class="product" src="data/falcon.png" alt="Тысячелетний сокол">
+							<p>Lego Star Wars. Тысячелетний сокол.</p>
+							<p>9800₽</p>
+						</div>
+					</center>
+				</div>
+                <div class="product-info">
+					<center>
+						<div>
+							<img class="product" src="data/batman.png" alt="Лего Batman">
+							<p>Lego Batman. Налет Джокера</p>
+							<p>3500₽</p>
+						</div>
+					</center>
+                </div>
+                <div class="product-info">
+                    <center>
+						<div>
+							<img class="product" src="data/film.png" alt="Билет на Лего.Фильм">
+							<p>Один билет на "Лего.Кино"</p>
+							<p>250₽</p>
+						</div>
+					</center>
+                </div>
+            </div>
+        </div>
+		<div>
+		За свою почти 85-летнюю историю существования конструктор LEGO стал одной из самых популярных и любимых игрушек нескольких поколений во всем мире. Причем играть с конструктором нравится не только детям: многие из них, вырастая, остаются преданными фанатами игрушки и продолжают покупать все новые и новые наборы. 
+		</div>
+</div>
+</main>
+
+<footer>
+	<div class="container">
+		<center>
+			<h4>Поделиться в социальных сетях</h4>
+				<div class="icons">
+					<a href="https://vk.com/share.php?url=" title="Поделиться в Vk" target="_blank">
+						<img class="icons" id="vk"></a>
+				</div>
+				<div class="icons">
+					<a href="http://www.facebook.com/sharer.php?url=" title="Поделиться в Facebook" target="_blank">
+						<img class="icons" id="facebook"></a>
+				</div>
+				<div class="icons">
+					<a href="http://twitter.com/share?url=" title="Поделиться в Twitter" target="_blank"	>
+						<img class="icons" id="twitter"></a>
+				</div>
+		</center>
+	</div>
+</footer>
+</body>
+</html>
